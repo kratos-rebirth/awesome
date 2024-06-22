@@ -1,0 +1,79 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    # Setup Node.js env
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 'latest'
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+        run_install: false
+
+    # Get Hexo test utils
+    - uses: actions/checkout@v4
+      with:
+        repository: 'kratos-rebirth/quickstart'
+    
+    # Clone Demo site configurations & assets into tmp
+    - uses: actions/checkout@v4
+      with:
+        path: 'custom-files'
+
+    # Apply custom settings
+    - name: Apply custom settings
+      run: |
+        rm _config.yml
+        rm _config.kratos-rebirth.yml
+        mv custom-files/config/_config.yml _config.yml
+        mv custom-files/config/_config.kratos-rebirth.yml _config.kratos-rebirth.yml
+
+    # Apply custom files
+    - name: Apply custom files
+      run: |
+        mv source/assets custom-files/source/
+        rm -rf source
+        mv custom-files/source source
+        mkdir source/_data
+        mv custom-files/awesome.yml source/_data/linklist.yml
+
+    # Install Hexo env
+    - name: Install Hexo environment
+      run: pnpm install
+
+    # Hexo build demo site
+    - name: Hexo build demo site
+      run: npx hexo generate --force
+
+    - name: Upload artifacts for pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: public
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

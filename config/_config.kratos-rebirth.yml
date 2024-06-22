@@ -1,0 +1,35 @@
+search:
+  provider: none
+
+image:
+  favicon: "/assets/favicon.png"
+  avatar: "https://dev.krt.moe/demo-assets/logo.webp"
+  banner:
+    light: "https://dev.krt.moe/demo-assets/banner.webp"
+    dark: "https://dev.krt.moe/demo-assets/banner_dark.webp"
+  background:
+    light: "https://dev.krt.moe/demo-assets/bg.webp"
+    dark: "https://dev.krt.moe/demo-assets/bg.webp"
+
+nav:
+  items:
+    - label: 列表
+      icon: link
+      url: /
+    - label: 看看我的
+      icon: heartbeat
+      url: /show-my-site/
+
+footer:
+  components:
+    uptime:
+      since: "2024-06-23 00:08:16"
+
+sidebar:
+  location: none
+
+share:
+  enable: false
+
+donate:
+  enable: false
