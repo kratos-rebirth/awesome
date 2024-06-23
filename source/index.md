@@ -1,5 +1,4 @@
 ---
-title: 超棒的站点们
 date: 2024-06-23 00:08:16
 description: "使用 Kratos : Rebirth 作为主题的站点们"
 ---
