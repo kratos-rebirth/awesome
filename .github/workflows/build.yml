@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'source/**'
+      - 'config/**'
       - 'awesome.yml'
   workflow_dispatch:
 
@@ -54,7 +55,9 @@ jobs:
 
     # Install Hexo env
     - name: Install Hexo environment
-      run: pnpm install
+      run: |
+        pnpm install
+        pnpm remove hexo-generator-index
 
     # Hexo build demo site
     - name: Hexo build demo site
