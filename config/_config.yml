@@ -6,7 +6,11 @@
 title: 'Kratos : Rebirth'
 subtitle: '使用主题的站点合集'
 description: '使用 Kratos : Rebirth 作为主题的站点合集'
-keywords: hexo, theme, kratos-rebirth, awesome
+keywords: 
+- hexo
+- theme
+- kratos-rebirth
+- awesome
 author: All contributors
 language: zh
 timezone: ''
