@@ -19,6 +19,16 @@ nav:
     - label: 看看我的
       icon: heartbeat
       url: /show-my-site/
+    - label: 其他链接
+      icon: link
+      float_right: true
+      submenu:
+        - label: 主题仓库
+          url: https://github.com/Candinya/Kratos-Rebirth
+        - label: 主题文档
+          url: https://wiki.krt.moe
+        - label: 周边生态
+          url: https://eco.krt.moe
 
 footer:
   components:
