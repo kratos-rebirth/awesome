@@ -31,9 +31,17 @@ nav:
           url: https://eco.krt.moe
 
 footer:
+  links:
+    - icon: github
+      link: https://github.com/kratos-rebirth/awesome
+    - icon: rss
+      link: /atom.xml
   components:
     uptime:
       since: "2024-06-23 00:08:16"
+    additional:
+      - - 由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 强力驱动
+        - 在 <a href="https://github.io" target="_blank">Github Pages</a> 暖心托管
 
 sidebar:
   location: none
