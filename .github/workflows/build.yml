@@ -31,7 +31,7 @@ jobs:
       with:
         repository: 'kratos-rebirth/quickstart'
     
-    # Clone Demo site configurations & assets into tmp
+    # Clone site configurations & assets
     - uses: actions/checkout@v4
       with:
         path: 'custom-files'
@@ -59,8 +59,8 @@ jobs:
         pnpm install
         pnpm remove hexo-generator-index
 
-    # Hexo build demo site
-    - name: Hexo build demo site
+    # Hexo build site
+    - name: Hexo build site
       run: npx hexo generate --force
 
     - name: Upload artifacts for pages
