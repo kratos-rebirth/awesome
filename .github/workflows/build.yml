@@ -26,7 +26,7 @@ jobs:
         version: 9
         run_install: false
 
-    # Get Hexo test utils
+    # Get quickstart kit
     - uses: actions/checkout@v4
       with:
         repository: 'kratos-rebirth/quickstart'
